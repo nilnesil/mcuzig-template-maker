@@ -21,6 +21,7 @@ pub fn main() anyerror!void {
 
     const svdfile = try std.fs.cwd().openFile(svd_name, .{});
     defer svdfile.close();
+
     const cfgjson = try std.fs.cwd().readFileAlloc(allocator, config_name, std.math.maxInt(usize));
     defer allocator.free(cfgjson);
 

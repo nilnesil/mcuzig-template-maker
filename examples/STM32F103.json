@@ -9,5 +9,5 @@
             "length":"20K"
         }
     },
-    "target": ".{ \n    .cpu_arch = .thumb,\n    .cpu_model = .{ .explicit = &std.Target.arm.cpu.cortex_m3 },\n    .os_tag = .freestanding,\n    .abi = .none,\n    }"
+    "target": ".{\n    .cpu_arch = .thumb,\n    .cpu_model = .{ .explicit = &std.Target.arm.cpu.cortex_m3 },\n    .os_tag = .freestanding,\n    .abi = .none,\n    }"
 }

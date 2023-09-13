@@ -52,6 +52,6 @@ pub fn generate(dir: Dir, target: []const u8) anyerror!void {
     defer b.close();
     const br = b.writer();
     _ = try b.write(build_part1);
-    _ = try br.print("    const target = {s};", .{target});
+    try br.print("    const target = {s};", .{target});
     _ = try b.write(build_part2);
 }
