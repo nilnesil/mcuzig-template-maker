@@ -3,7 +3,7 @@ const JsonConfig = @import("mcuzig-type/JsonConfig.zig");
 const project_build = @import("root.zig");
 const project_src = @import("src.zig");
 
-pub fn main() !void {
+pub fn main() anyerror!void {
     var arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
     defer arena.deinit();
 
@@ -15,9 +15,9 @@ pub fn main() !void {
     _ = args.next(); // skip application name
     // Note memory will be freed on exit since using arena
 
-    const config_name = "examples\\stm32f103.json";
-    const svd_name = "examples\\STM32F103.svd";
-    const dir_name = "zig-cache\\tmp";
+    const config_name = if (args.next()) |arg| arg else return error.MandatoryFilenameArgumentNotGiven;
+    const svd_name = if (args.next()) |arg| arg else return error.MandatoryFilenameArgumentNotGiven;
+    const dir_name = if (args.next()) |arg| arg else return error.MandatoryFilenameArgumentNotGiven;
 
     const svdfile = try std.fs.cwd().openFile(svd_name, .{});
     defer svdfile.close();
