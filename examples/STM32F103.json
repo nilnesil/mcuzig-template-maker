@@ -1,0 +1,13 @@
+{
+    "memory":{
+        "flash":{
+            "origin":"0x8000000",
+            "length":"64K"
+        },
+        "ram":{
+            "origin":"0x20000000",
+            "length":"20K"
+        }
+    },
+    "target": ".{ \n    .cpu_arch = .thumb,\n    .cpu_model = .{ .explicit = &std.Target.arm.cpu.cortex_m3 },\n    .os_tag = .freestanding,\n    .abi = .none,\n    }"
+}
