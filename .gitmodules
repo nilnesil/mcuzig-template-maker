@@ -1,0 +1,6 @@
+[submodule "src/svd2zig-core"]
+	path = src/svd2zig-core
+	url = git@github.com:nilnesil/svd2zig-core.git
+[submodule "src/mcuzig-type"]
+	path = src/mcuzig-type
+	url = git@github.com:nilnesil/mcuzig-type.git
